@@ -1,0 +1,254 @@
+{
+    "intents":[
+      {
+        "tag":"greeting",
+        "patterns":["hello","hi","hey","wakeup","HAVAI","Hii"
+        ],
+        "responses":["hello sir","always for you sir","hello","how are you sir"
+  
+        ]
+  },
+        {
+        "tag":"okay",
+        "patterns":["roger that", "affirmative", "all clear", "got it", "copy that","okay", "ok", "kk"
+  ],
+        "responses":["acknowledged", "clear", "received", "understood", "noted","Got it", "understood", "alright", "cool", "sure thing"
+  ]
+  },
+  {
+        "tag":"thank you",
+        "patterns":["thank you", "thanks", "thank you very much","much appreciated", "grateful", "I appreciate it", "cheers", "many thanks"
+  ],
+        "responses":["you're welcome", "no problem", "my pleasure", "glad to help", "anytime","you're welcome", "no problem", "my pleasure", "glad to help", "anytime"
+  ]
+  },
+  {
+        "tag":"bye",
+        "patterns":["bye bye","see you later ","goodbye","sleep","exit"
+        ],
+        "responses":["bye","see you later ","sleeping","it will be nice to meet you again","good bye sir"
+        ]
+  
+    },
+    {
+        "tag":"health",
+        "patterns":["how are you","are you fine","are you good","are you aleright","how's you"
+        ],
+        "responses":["fine sir","perfect sir ","cool sir","i am fine sir ","good sir"
+        ]
+  
+    },
+    {
+        "tag":"Identity",
+        "patterns":["your name","what is your name ","who are you","what is you"
+        ],
+        "responses":["HAV-AI ","my name is HAVAI sir","I am HAVAI an Personal AI assistant","I Am HAVAI an AI Assistant "
+        ]
+  
+    },
+ {
+      "tag": "Flu",
+      "patterns": [
+          "What are some traditional remedies for the flu?",
+          "I am having stuffy nose",
+          "i am having flu",
+          "I have flu",
+          " flu"
+      ],
+      "responses": [
+          "Drink fluids, rest, use a humidifier, take pain relievers. Talk to your doctor before trying new treatments.",
+          "Drink hot liquids, take steamy showers, use saline nasal spray or gargle with salt water. Talk to your doctor before trying new treatments.",
+          "Try ginger, garlic, honey, vitamin C-rich foods, and essential oils in a diffuser. Talk to your doctor before trying new remedies.",
+          "Drink fluids, rest, use a humidifier, warm compress. Talk to your doctor before trying new remedies or treatments.",
+          "Drink fluids, rest, use a humidifier, take pain relievers. Talk to your doctor before trying new remedies or treatments."
+      ]
+  },
+   {
+    "tag": "Common Cold",
+    "patterns": [
+        "I am sneezing",
+        "Runny nose",
+        "running nose",
+        "i have cold",
+        " i have cold "
+    ],
+    "responses": [
+        "Drink fluids, rest, use a humidifier, take pain relievers. Talk to your doctor before trying new remedies or treatments. If symptoms persist, visit a doctor for further treatment.",
+        "Drink hot liquids, take steamy showers, use saline nasal spray or gargle with salt water. Talk to your doctor before trying new treatments. If symptoms persist, visit a doctor for further treatment.",
+        "Try ginger, garlic, honey, vitamin C-rich foods, and essential oils in a diffuser. Talk to your doctor before trying new remedies. If symptoms persist, visit a doctor for further treatment.",
+        "Drink fluids, rest, use a humidifier, warm compress. Talk to your doctor before trying new remedies or treatments. If symptoms persist, visit a doctor for further treatment.",
+        "Drink fluids, rest, use a humidifier, take pain relievers. Talk to your doctor before trying new remedies or treatments. If symptoms persist, visit a doctor for further treatment."
+    ]
+},
+{
+      "tag": "Asthma",
+      "patterns": [
+          "shortness of breath",
+          "Chest tightness",
+          "shortness of breath",
+          "I have asthma"
+      ],
+      "responses": [
+          "Use a humidifier or take a steamy shower to help with breathing. If symptoms persist, visit a doctor.",
+          "Drink caffeine, such as coffee or tea, to help open airways. If symptoms persist, visit a doctor.",
+          "Try breathing exercises, such as pursed lip breathing or belly breathing. If symptoms persist, visit a doctor.",
+          "Avoid triggers, such as smoke, pollen, or pet dander. If symptoms persist, visit a doctor.",
+          "Eat a diet rich in fruits, vegetables, and lean proteins. If symptoms persist, visit a doctor.",
+          "Try natural remedies, such as honey or eucalyptus oil. If symptoms persist, visit a doctor."
+      ]
+  },
+   {
+    "tag": "Back pain",
+    "patterns": [
+      "back is paining",
+      "lower pain",
+      "I have back pain",
+      "My back is paining",
+      "upper pain",
+      " back pain?"
+      
+    ],
+    "responses": [
+        "Apply heat or cold to the affected area to reduce inflammation. If symptoms persist, visit a doctor.",
+        "Stretch or do yoga to help alleviate muscle tension. If symptoms persist, visit a doctor.",
+        "Try natural remedies, such as turmeric or ginger. If symptoms persist, visit a doctor.",
+        "Maintain good posture and avoid sitting for prolonged periods. If symptoms persist, visit a doctor."
+    ]
+},
+  {
+    "tag": "SkinInfection",
+    "patterns": [
+        "redness in skin",
+        " I have skin infection"
+    ],
+    "responses": [
+        "Apply a warm compress to the affected area to reduce inflammation. If symptoms persist, visit a doctor.",
+        "Keep the affected area clean and dry. Avoid picking or scratching the affected area. If symptoms persist, visit a doctor.",
+        "Use natural remedies, such as tea tree oil or aloe vera, to soothe the affected area. If symptoms persist, visit a doctor.",
+        "Take a lukewarm bath with Epsom salt to help alleviate symptoms. If symptoms persist, visit a doctor."
+    ]
+},
+{
+    "tag": "Headache",
+    "patterns": [
+      "headache",
+      "migraine",
+      "head is paining",
+      "my heaad is paining",
+      "I have headach",
+      "head paining",
+      "throbbing pain in head"
+    ],
+    "responses": [
+        "Apply a cold compress to the forehead to reduce inflammation. If symptoms persist, visit a doctor.",
+        "Take a break and rest in a quiet, dark room. If symptoms persist, visit a doctor.",
+        "Try natural remedies, such as peppermint oil or lavender oil. If symptoms persist, visit a doctor.",
+        "Stay hydrated and maintain a balanced diet to avoid triggers. If symptoms persist, visit a doctor."
+        
+    ]
+},
+{
+    "tag": "Fatigue",
+    "patterns": [
+      "fatigue",
+      "tiredness",
+      "i am feeling tired",
+      "exhaustion"
+  ],
+    "responses": [
+        "Make sure you're getting enough restful sleep each night. If symptoms persist, visit a doctor.",
+        "Stay physically active and engage in regular exercise. If symptoms persist, visit a doctor.",
+        "Reduce stress and practice relaxation techniques, such as yoga or meditation. If symptoms persist, visit a doctor.",
+        "Eat a balanced diet and stay hydrated throughout the day. If symptoms persist, visit a doctor."
+    ]
+},
+  {
+    "tag": "Chest Pain",
+    "patterns": [
+      "chest pain",
+      "chest is paining",
+      "chest discomfort",
+      "pain in chest",
+      "i have pain in my chest"
+        ],
+    "responses": [
+        "If you are experiencing chest pain, seek medical attention immediately.",
+        "Avoid any physical activity or exertion and rest until you receive medical attention.",
+        "Stay calm and try to relax. Take slow, deep breaths and avoid hyperventilating. If symptoms persist, visit a doctor.",
+        "If you have a history of heart disease or chest pain, talk to your doctor about long-term management and prevention strategies. If symptoms persist, visit a doctor."
+    ]
+},
+{
+    "tag": "Abdominal Pain",
+    "patterns": [
+      "I have abdominal pain",
+      "My stomch is paining",
+      "My stomach hurts",
+      "I am experiencing abdominal discomfort", 
+      "Abdominal Pain",
+      "Abdominal pain is bothering me"
+    ],
+    "responses": [
+        "Drink plenty of fluids and stay hydrated. If symptoms persist, visit a doctor.",
+        "Try a warm compress or heating pad on the affected area for relief. If symptoms persist, visit a doctor.",
+        "Eat small, frequent meals throughout the day and avoid large meals. If symptoms persist, visit a doctor."
+    ]
+},
+  {
+      "tag": "Fever",
+      "patterns": [
+          "high body temperature",
+          "elevated temperature",
+          "feeling hot",
+          "feverish",
+          "fever",
+          "hot to the touch",
+          "fever symptoms"            ],
+      "responses": [
+          "Stay hydrated by drinking plenty of water, clear broths, or other fluids. Get plenty of rest and stay in a cool, comfortable room. If symptoms persist or worsen, seek medical attention.",
+          "Take over-the-counter pain relievers, such as acetaminophen or ibuprofen, to reduce fever and alleviate any discomfort. If symptoms persist or worsen, seek medical attention.",
+          "Apply a cool, damp cloth to your forehead, armpits, and neck to help reduce fever. Take a lukewarm bath or sponge bath to further cool your body. If symptoms persist or worsen, seek medical attention."
+            ]
+  },
+  {
+      "tag": "Cough",
+      "patterns": [
+          "coughing",
+          "dry cough",
+          "i am having dry cough",
+          "i am having wet cough",
+          "I am having weight cough",
+          "weight cough",
+          "wet cough",
+          "cough",
+          "persistent cough"
+        ],
+      "responses": [
+          "Drink plenty of warm fluids, like water or tea, to soothe your throat and help loosen mucus. Gargle with saltwater to help alleviate throat soreness. If symptoms persist or worsen, seek medical attention.",
+          "Use a humidifier or take a steamy shower to help moisten the airways and loosen mucus. Try over-the-counter cough medicines or throat lozenges to alleviate symptoms. If symptoms persist or worsen, seek medical attention.",
+          "Stay hydrated and get plenty of rest. Try using honey or other natural cough remedies to soothe your throat. If symptoms persist or worsen, seek medical attention.",
+          "Try to avoid irritants like smoke or dust, which can make cough symptoms worse. Elevate your head while sleeping to help reduce coughing at night. If symptoms persist or worsen, seek medical attention."
+              ]
+    },
+     {
+      "tag": "SoreThroatRemedies",
+      "patterns": [
+           "sore throat",
+           "Having sore throat",
+            "painful throat",
+            "throat paining",
+            "itchy throat",
+            "throat is itching",
+            "scratchy throat"
+              ],
+        "responses": [
+            "Gargle with warm saltwater. Drink fluids. See a doctor if symptoms persist.",
+            "Use a humidifier. Try pain relievers or throat lozenges. See a doctor if symptoms persist.",
+            "Drink warm liquids. Use herbs like sage or chamomile. See a doctor if symptoms persist."
+              ]
+          }
+          
+  
+        ]
+  }
+  

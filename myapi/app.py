@@ -5,24 +5,26 @@ import json
 import torch
 from Brain import NeuralNet
 
+
+from huggingface_hub import login
+login(token="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")
+
+import torch
+import argparse
+# import parser
+parser = argparse.ArgumentParser()
+parser.add_argument('--type', default='torch.FloatTensor', help='type of tensor - e.g torch.HalfTensor')
+from transformers import AutoModelForCausalLM, AutoTokenizer, TextStreamer
+# model = AutoModelForCausalLM.from_pretrained("pansophic/rocket-3B", trust_remote_code=True, torch_dtype=torch.bfloat16)
+
 # ---------------------------------------------------------------------------------- IMPORTED FROM JARVIS
-device = torch.device('cuda' if torch .cuda.is_available() else 'cpu')
-with open("intents.json","r") as json_data:
-    intents = json.load(json_data)
+# device = torch.device('cuda' if torch .cuda.is_available() else 'cpu')
 
-FILE = "TrainData.pth"
-data = torch.load(FILE)
 
-input_size = data["input_size"]
-hidden_size = data["hidden_size"]
-output_size = data["output_size"]
-all_words = data["all_words"]
-tags = data["tags"]
-model_state = data["model_state"]
+model = AutoModelForCausalLM.from_pretrained("pansophic/rocket-3B", trust_remote_code=True, torch_dtype=torch.bfloat16).to("cuda")
+tokenizer = AutoTokenizer.from_pretrained("pansophic/rocket-3B", trust_remote_code=True, torch_dtype=torch.bfloat16)
+streamer = TextStreamer(tokenizer)
 
-model = NeuralNet(input_size, hidden_size, output_size).to(device)
-model.load_state_dict(model_state)
-model.eval()
 
 # -------------------------------------------------------------------------------------
 
@@ -38,25 +40,32 @@ def getResponse():
     user_message = request.form.get('user_message')
 
     # -----------------------------------------------------------------
-    user_message = str(user_message).lower()
-    sentence = tokenize(user_message)
-    X = bag_of_words(sentence,all_words)
-    X = X.reshape(1,X.shape[0])
-    X = torch.from_numpy(X).to(device)
+    
+    prompt = """<|im_start|>system
+    {system}<|im_end|>
+    <|im_start|>user
+    {user}<|im_end|>
+    <|im_start|>assistant
+    """
 
-    output = model(X)
-    _ , predicted = torch.max(output,dim=1)
+    # system = "You are a wellness guru who transforms every health remedy into a time-honored secret, imparting ancient wisdom and traditional practice. Provide insight and guidance on traditional Indian cure for common ailment with a touch of holistic wisdom"
+    system = "As a revered wellness guru, you unveil the ancient secrets of traditional Indian cures for common ailments, offering profound insights and guidance. Share your wisdom one remedy at a time, infusing each response with the time-honored essence of holistic health practices"
+    # user = "I am having joint pain what should i do now"
+    user = user_message
 
-    tag = tags[predicted.item()]
-    probs = torch.softmax(output,dim=1)
-    prob = probs[0][predicted.item()]
+    # Apply the ChatML format
+    prompt = prompt.format(system=system, user=user)
 
-    reply =""
-    if prob.item() > 0.75:
-        for intent in intents['intents']:
+    # Tokenize the prompt
+    # inputs = tokenizer(prompt, return_tensors="pt", return_attention_mask=False)
 
-            if tag == intent["tag"]:
-                reply = random.choice(intent["responses"])
+    # CHNAGED FROM GPU TO CPU
+
+    inputs = tokenizer(prompt, return_tensors="pt", return_attention_mask=False).to("cuda")
+    generated_text = model.generate(**inputs, max_length=200, top_p=0.95, do_sample=True, temperature=0.7, use_cache=True, streamer=streamer)
+
+    generated_text_ids = generated_text[0].tolist()
+    reply = tokenizer.decode(generated_text_ids, skip_special_tokens=True)
 
     
     # ----------------------------------------------------------------
